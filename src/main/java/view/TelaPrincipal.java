@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 public class TelaPrincipal extends JFrame {
-
+// alterei localmente 
 	private JPanel contentPane;
 
 	/**
