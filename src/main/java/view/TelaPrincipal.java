@@ -14,6 +14,7 @@ public class TelaPrincipal extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	// alterei via Git 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
