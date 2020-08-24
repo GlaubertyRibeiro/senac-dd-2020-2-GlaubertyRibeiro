@@ -112,4 +112,23 @@ public class InstituicaoDAO {
 		return resultado;
 	}
 
+	public int excluirInstituicaoDAO(InstituicaoEntity instituicaoEntity) {
+		Connection conn = Banco.getConnection();
+		Statement stmt = Banco.getStatement(conn);
+		int resultado = 0;
+
+		String query = "DELETE FROM instituicao WHERE id = " + instituicaoEntity.getId();
+
+		try {
+			resultado = stmt.executeUpdate(query);
+		} catch (SQLException e) {
+			System.out.println("Erro ao executar a Query de exclusão da Instituição.");
+			System.out.println(e.getMessage());
+		} finally {
+			Banco.closeStatement(stmt);
+			Banco.closeConnection(conn);
+		}
+		return resultado;
+	}
+
 }

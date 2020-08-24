@@ -34,7 +34,7 @@ public class MenuInstituicoes {
 				break;
 			}
 			case OPCAO_MENU_EXCLUIR_INSTITUICAO: {
-				System.out.println("Instituição excluída");
+				this.excluirInstituicao();
 				break;
 			}
 			default: {
@@ -44,6 +44,18 @@ public class MenuInstituicoes {
 			opcao = this.apresentarOpcoesMenu();
 		}
 
+	}
+
+	private void excluirInstituicao() {
+InstituicaoEntity instituicaoEntity = new InstituicaoEntity();
+		
+		System.out.print("\nDigite o código da Instituição: ");
+		instituicaoEntity.setId(Integer.parseInt(teclado.nextLine()));
+		
+		ControladorInstituicao controladorInstituicao = new ControladorInstituicao();
+		controladorInstituicao.excluirInstituicaoController(instituicaoEntity); 
+		
+		
 	}
 
 	private void atualizarInstituicao() {
@@ -67,7 +79,7 @@ public class MenuInstituicoes {
 		instituicaoEntity.setEstado(teclado.nextLine());
 		
 		ControladorInstituicao controladorInstituicao = new ControladorInstituicao();
-		controladorInstituicao.atualizarInstituicaoController(instituicaoEntity);
+		controladorInstituicao.atualizarInstituicaoController(instituicaoEntity); 
 		
 	}
 

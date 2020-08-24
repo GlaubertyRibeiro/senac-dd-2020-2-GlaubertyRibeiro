@@ -17,4 +17,12 @@ public class ControladorInstituicao {
 		instituicaoBO.atualizarInstituicaoBO(instituicaoEntity);
 	}
 
+	public void excluirInstituicaoController(InstituicaoEntity instituicaoEntity) {
+		
+
+		InstituicaoBO instituicaoBO = new InstituicaoBO();
+		instituicaoBO.excluirInstituicaoBO(instituicaoEntity);
+		
+	}
+
 }

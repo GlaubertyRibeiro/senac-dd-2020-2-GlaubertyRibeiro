@@ -39,4 +39,20 @@ public class InstituicaoBO {
 		
 	}
 
+	public void excluirInstituicaoBO(InstituicaoEntity instituicaoEntity) {
+		InstituicaoDAO instituicaoDAO = new InstituicaoDAO();
+		
+		if (instituicaoDAO.existeRegistroPorId(instituicaoEntity.getId())) {
+			int resultado = instituicaoDAO.excluirInstituicaoDAO(instituicaoEntity);
+			if (resultado == 1) {
+				System.out.println("\nInstituição excluída com Sucesso.");
+			} else {
+				System.out.println("\nNão foi possivel excluir a Instituição.");
+			}
+		} else {
+			System.out.println("\nInstituição não existe na base de dados.");
+		}
+		
+	}
+
 }
