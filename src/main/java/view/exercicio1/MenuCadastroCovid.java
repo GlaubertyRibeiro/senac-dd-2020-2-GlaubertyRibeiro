@@ -35,12 +35,12 @@ public class MenuCadastroCovid {
 			}
 			case OPCAO_MENU_CADASTRO_VACINAS: {
 				MenuVacinas menuVacinas = new MenuVacinas();
-				menuVacinas.apresentarMenuPublicoGeral();
+				menuVacinas.apresentarMenuVacinas();
 				break;
 			}
 			case OPCAO_MENU_CADASTRO_INSTITUICOES: {
 				MenuInstituicoes menuInstituicoes = new MenuInstituicoes();
-				menuInstituicoes.apresentarMenuPublicoGeral();
+				menuInstituicoes.apresentarMenuInstituicoes();
 				break;
 			}
 			default: {
@@ -52,7 +52,7 @@ public class MenuCadastroCovid {
 	}
 
 	private int apresentarOpcoesMenu() {
-		System.out.println("\nControle de Gastos \n************ Menu Cadastro ************");
+		System.out.println("\nControle Covid \n************ Menu de Cadastro Geral ************");
 		System.out.println("\nOpções: ");
 		System.out.println(OPCAO_MENU_CADASTRO_PESQUISADOR + " - Cadastrar Pesquisador");
 		System.out.println(OPCAO_MENU_CADASTRO_VOLUNTARIO + " - Cadastrar Voluntário");
