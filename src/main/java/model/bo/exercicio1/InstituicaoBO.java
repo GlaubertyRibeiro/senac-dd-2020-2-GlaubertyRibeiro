@@ -1,5 +1,7 @@
 package model.bo.exercicio1;
 
+import java.util.ArrayList;
+
 import model.dao.exercicio1.InstituicaoDAO;
 import model.vo.exercicio1.InstituicaoEntity;
 
@@ -53,6 +55,24 @@ public class InstituicaoBO {
 			System.out.println("\nInstituição não existe na base de dados.");
 		}
 		
+	}
+
+	public ArrayList<InstituicaoEntity> consultarTodasInstituicoes() {
+		InstituicaoDAO instituicaoDAO = new InstituicaoDAO();
+		ArrayList<InstituicaoEntity> listaInstituicaoEntity = InstituicaoDAO.consultarTodasInstituicoesDAO();
+		if (listaInstituicaoEntity.isEmpty()) {
+			System.out.println("\nLista de Instituições está vazia. ");
+		}
+		return listaInstituicaoEntity;
+	}
+
+	public InstituicaoEntity consultarInstituicao(InstituicaoEntity instituicaoEntity) {
+		InstituicaoDAO instituicaoDAO = new InstituicaoDAO();
+		InstituicaoEntity instituicao = instituicaoDAO.consultarInstituicoesDAO(instituicaoEntity);
+		if (instituicao == null) {
+			System.out.println("\nInstituição não foi Localizada. ");
+		}
+		return instituicao;
 	}
 
 }

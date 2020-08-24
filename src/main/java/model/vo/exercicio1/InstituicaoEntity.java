@@ -52,4 +52,17 @@ public class InstituicaoEntity extends EnderecoEntity{
 		this.endereco = endereco;
 	}
 
+	public void imprimir() {
+		System.out.printf("\n%3d  %-30s  %-15s  %-20s  %-20s  %-10s  %-20s  %-30s \n",
+				this.getId(),
+				this.getNome(),
+				this.getCnpj(),
+				this.getBairro(),
+				this.getRua(),
+				this.getNumero(),
+				this.getCidade(),
+				this.getEstado());
+		
+	}
+
 }

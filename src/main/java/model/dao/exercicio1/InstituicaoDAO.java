@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import model.vo.exercicio1.InstituicaoEntity;
 
@@ -129,6 +130,77 @@ public class InstituicaoDAO {
 			Banco.closeConnection(conn);
 		}
 		return resultado;
+	}
+
+	public static ArrayList<InstituicaoEntity> consultarTodasInstituicoesDAO() {
+		Connection conn = Banco.getConnection();
+		Statement stmt = Banco.getStatement(conn);
+		ResultSet resultado = null;
+		ArrayList<InstituicaoEntity> listaInstituicaoEntity = new ArrayList<InstituicaoEntity>();
+
+		String query = "SELECT id, nome, cnpj, bairro, rua, numero, cidade, estado from instituicao";
+
+		try {
+			resultado = stmt.executeQuery(query);
+			while (resultado.next()) {
+				InstituicaoEntity instituicao = new InstituicaoEntity();
+				instituicao.setId(Integer.parseInt(resultado.getString(1)));
+				instituicao.setNome(resultado.getString(2));
+				instituicao.setCnpj(resultado.getString(3));
+				instituicao.setBairro(resultado.getString(4));
+				instituicao.setRua(resultado.getString(5));
+				instituicao.setNumero(resultado.getString(6));
+				instituicao.setCidade(resultado.getString(7));
+				instituicao.setEstado(resultado.getString(8));
+
+				listaInstituicaoEntity.add(instituicao);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("\nErro ao executar a query de consulta de todas as Instituições.");
+			System.out.println("Erro: " + e.getMessage());
+		} finally {
+			Banco.closeResultSet(resultado);
+			Banco.closeStatement(stmt);
+			Banco.closeConnection(conn);
+		}
+
+		return listaInstituicaoEntity;
+	}
+
+	public InstituicaoEntity consultarInstituicoesDAO(InstituicaoEntity instituicaoEntity) {
+		Connection conn = Banco.getConnection();
+		Statement stmt = Banco.getStatement(conn);
+		ResultSet resultado = null;
+		InstituicaoEntity instituicao = null;
+		
+
+		String query = "SELECT id, nome, cnpj, bairro, rua, numero, cidade, estado from instituicao WHERE id = " + instituicaoEntity.getId();
+
+		try {
+			resultado = stmt.executeQuery(query); // SELECT SERÁ executeQuery
+			while (resultado.next()) {
+				instituicao = new InstituicaoEntity();
+				instituicao.setId(Integer.parseInt(resultado.getString(1)));
+				instituicao.setNome(resultado.getString(2));
+				instituicao.setCnpj(resultado.getString(3));
+				instituicao.setBairro(resultado.getString(4));
+				instituicao.setRua(resultado.getString(5));
+				instituicao.setNumero(resultado.getString(6));
+				instituicao.setCidade(resultado.getString(7));
+				instituicao.setEstado(resultado.getString(8));
+			}
+
+		} catch (SQLException e) {
+			System.out.println("\nErro ao executar a query de consulta de uma instituição específica.");
+			System.out.println("Erro: " + e.getMessage());
+		} finally {
+			Banco.closeResultSet(resultado);
+			Banco.closeStatement(stmt);
+			Banco.closeConnection(conn);
+		}
+
+		return instituicao;
 	}
 
 }
