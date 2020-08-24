@@ -1,6 +1,6 @@
 package model.vo.exercicio1;
 
-public class InstituicaoEntity {
+public class InstituicaoEntity extends EnderecoEntity{
 
 	private int id;
 	private String nome;

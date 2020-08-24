@@ -2,6 +2,9 @@ package view.exercicio1;
 
 import java.util.Scanner;
 
+import controller.exercicio1.ControladorInstituicao;
+import model.vo.exercicio1.InstituicaoEntity;
+
 public class MenuInstituicoes {
 
 	Scanner teclado = new Scanner(System.in);
@@ -18,7 +21,7 @@ public class MenuInstituicoes {
 		while (opcao != OPCAO_MENU_INSTITUICAO_VOLTAR) {
 			switch (opcao) {
 			case OPCAO_MENU_CADASTRAR_INSTITUICAO: {
-				System.out.println("Instituição cadastrada");
+				this.cadastrarInstituicao();
 				break;
 			}
 			case OPCAO_MENU_CONSULTAR_INSTITUICAO: {
@@ -41,6 +44,29 @@ public class MenuInstituicoes {
 			opcao = this.apresentarOpcoesMenu();
 		}
 
+	}
+
+	private void cadastrarInstituicao() {
+		InstituicaoEntity instituicaoEntity = new InstituicaoEntity();
+		
+		System.out.print("\nDigite o Nome da Instituição: ");
+		instituicaoEntity.setNome(teclado.nextLine());
+		System.out.print("\nDigite o CNPJ da Instituição: ");
+		instituicaoEntity.setCnpj(teclado.nextLine());
+		System.out.print("\nDigite a Bairro da Instituição: ");
+		instituicaoEntity.setBairro(teclado.nextLine());
+		System.out.print("\nDigite a Rua da Instituição: ");
+		instituicaoEntity.setRua(teclado.nextLine());
+		System.out.print("\nDigite a Número da Instituição: ");
+		instituicaoEntity.setNumero(teclado.nextLine());
+		System.out.print("\nDigite a Cidade da Instituição: ");
+		instituicaoEntity.setCidade(teclado.nextLine());
+		System.out.print("\nDigite o Estado da Instituição: ");
+		instituicaoEntity.setEstado(teclado.nextLine());
+		
+		ControladorInstituicao controladorInstituicao = new ControladorInstituicao();
+		controladorInstituicao.cadastrarInstituicaoController(instituicaoEntity);
+		
 	}
 
 	private int apresentarOpcoesMenu() {
