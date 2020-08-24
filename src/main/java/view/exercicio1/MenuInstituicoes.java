@@ -29,7 +29,7 @@ public class MenuInstituicoes {
 				break;
 			}
 			case OPCAO_MENU_ATUALIZAR_INSTITUICAO: {
-				System.out.println("Instituição atualizada");
+				this.atualizarInstituicao();
 				;
 				break;
 			}
@@ -44,6 +44,31 @@ public class MenuInstituicoes {
 			opcao = this.apresentarOpcoesMenu();
 		}
 
+	}
+
+	private void atualizarInstituicao() {
+		InstituicaoEntity instituicaoEntity = new InstituicaoEntity();
+		
+		System.out.print("\nDigite o código da Instituição: ");
+		instituicaoEntity.setId(Integer.parseInt(teclado.nextLine()));
+		System.out.print("\nDigite o Nome da Instituição: ");
+		instituicaoEntity.setNome(teclado.nextLine());
+		System.out.print("\nDigite o CNPJ da Instituição: ");
+		instituicaoEntity.setCnpj(teclado.nextLine());
+		System.out.print("\nDigite a Bairro da Instituição: ");
+		instituicaoEntity.setBairro(teclado.nextLine());
+		System.out.print("\nDigite a Rua da Instituição: ");
+		instituicaoEntity.setRua(teclado.nextLine());
+		System.out.print("\nDigite a Número da Instituição: ");
+		instituicaoEntity.setNumero(teclado.nextLine());
+		System.out.print("\nDigite a Cidade da Instituição: ");
+		instituicaoEntity.setCidade(teclado.nextLine());
+		System.out.print("\nDigite o Estado da Instituição: ");
+		instituicaoEntity.setEstado(teclado.nextLine());
+		
+		ControladorInstituicao controladorInstituicao = new ControladorInstituicao();
+		controladorInstituicao.atualizarInstituicaoController(instituicaoEntity);
+		
 	}
 
 	private void cadastrarInstituicao() {

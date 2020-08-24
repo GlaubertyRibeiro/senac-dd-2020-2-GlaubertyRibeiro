@@ -23,4 +23,20 @@ public class InstituicaoBO {
 		
 	}
 
+	public void atualizarInstituicaoBO(InstituicaoEntity instituicaoEntity) {
+		InstituicaoDAO instituicaoDAO = new InstituicaoDAO();
+		
+		if (instituicaoDAO.existeRegistroPorId(instituicaoEntity.getId())) {
+			int resultado = instituicaoDAO.atualizarInstituicaoDAO(instituicaoEntity);
+			if (resultado == 1) {
+				System.out.println("\nInstituição atualizada com Sucesso.");
+			} else {
+				System.out.println("\nNão foi possivel atualizar os dados da Instituicão.");
+			}
+		} else {
+			System.out.println("\nInstituição ainda não foi cadastrada.");
+		}
+		
+	}
+
 }

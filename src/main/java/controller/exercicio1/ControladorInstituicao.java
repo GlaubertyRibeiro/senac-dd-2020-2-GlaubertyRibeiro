@@ -11,4 +11,10 @@ public class ControladorInstituicao {
 		
 	}
 
+	public void atualizarInstituicaoController(InstituicaoEntity instituicaoEntity) {
+		
+		InstituicaoBO instituicaoBO = new InstituicaoBO();
+		instituicaoBO.atualizarInstituicaoBO(instituicaoEntity);
+	}
+
 }
