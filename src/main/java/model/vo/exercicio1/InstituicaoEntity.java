@@ -53,7 +53,7 @@ public class InstituicaoEntity extends EnderecoEntity{
 	}
 
 	public void imprimir() {
-		System.out.printf("\n%3d  %-30s  %-15s  %-20s  %-20s  %-10s  %-20s  %-30s \n",
+		System.out.printf("\n%3d  %-50s  %-15s  %-20s  %-20s  %-10s  %-20s  %-30s \n",
 				this.getId(),
 				this.getNome(),
 				this.getCnpj(),

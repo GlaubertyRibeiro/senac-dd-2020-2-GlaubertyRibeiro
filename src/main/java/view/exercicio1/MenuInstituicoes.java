@@ -62,7 +62,7 @@ public class MenuInstituicoes {
 				ArrayList<InstituicaoEntity> listaInstituicaoEntity = controladorInstituicao
 						.consultarTodasInstituicoesController();
 				System.out.println("*********** Resultado da Consulta *********** ");
-				System.out.printf("\n%3s  %-30s  %-15s  %-20s  %-20s  %-10s  %-20s  %-30s \n"
+				System.out.printf("\n%3s  %-50s  %-15s  %-20s  %-20s  %-10s  %-20s  %-30s \n"
 						          , "ID", "NOME", "CNPJ", "BAIRRO", "RUA", "NÚMERO", "CIDADE", "ESTADO" );
 				for (int i = 0; i < listaInstituicaoEntity.size(); i++) {
 					listaInstituicaoEntity.get(i).imprimir();
@@ -76,7 +76,7 @@ public class MenuInstituicoes {
 				instituicaoEntity.setId(Integer.parseInt(teclado.nextLine()));
 				InstituicaoEntity instituicao = controladorInstituicao.consultarInstituicaoController(instituicaoEntity);
 				System.out.println("*********** Resultado da Consulta *********** ");
-				System.out.printf("\n%3s  %-30s  %-15s  %-20s  %-20s  %-10s  %-20s  %-30s \n"
+				System.out.printf("\n%3s  %-50s  %-15s  %-20s  %-20s  %-10s  %-20s  %-30s \n"
 				          , "ID", "NOME", "CNPJ", "BAIRRO", "RUA", "NÚMERO", "CIDADE", "ESTADO" );
 				instituicao.imprimir();
 				break;

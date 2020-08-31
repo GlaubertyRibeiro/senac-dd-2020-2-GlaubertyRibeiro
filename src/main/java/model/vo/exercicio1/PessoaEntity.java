@@ -5,13 +5,11 @@ import java.time.LocalDate;
 public abstract class PessoaEntity {
 
 	private int id;
-	private int tipo;
 	private String nome;
 	private LocalDate dataNascimento;
-	private int sexo;
+	private String sexo;
 	private String cpf;
 	private EnderecoEntity endereco;
-	private int avaliacaoAVacina;
 
 	public PessoaEntity() {
 		super();
@@ -24,14 +22,6 @@ public abstract class PessoaEntity {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(int tipo) {
-		this.tipo = tipo;
 	}
 
 	public String getNome() {
@@ -50,11 +40,11 @@ public abstract class PessoaEntity {
 		this.dataNascimento = dataNascimento;
 	}
 
-	public int getSexo() {
+	public String getSexo() {
 		return sexo;
 	}
 
-	public void setSexo(int sexo) {
+	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
 
@@ -74,13 +64,5 @@ public abstract class PessoaEntity {
 		this.endereco = endereco;
 	}
 
-
-	public int getAvaliacaoAVacina() {
-		return avaliacaoAVacina;
-	}
-
-	public void setAvaliacaoAVacina(int avaliacaoAVacina) {
-		this.avaliacaoAVacina = avaliacaoAVacina;
-	}
 	
 }

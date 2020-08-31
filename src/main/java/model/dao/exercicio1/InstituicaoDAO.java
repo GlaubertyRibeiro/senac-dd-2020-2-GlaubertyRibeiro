@@ -67,7 +67,7 @@ public class InstituicaoDAO {
 		Statement stmt = Banco.getStatement(conn);
 		ResultSet resultado = null;
 
-		String query = "SELECT id FROM instituicao WHERE id = " + id;
+		String query = "SELECT id_instituicao FROM instituicao WHERE id_instituicao = " + id;
 
 		try {
 			resultado = stmt.executeQuery(query);
@@ -97,7 +97,7 @@ public class InstituicaoDAO {
 		+ "', rua = '" + instituicaoEntity.getRua()
 		+ "', numero = '" + instituicaoEntity.getNumero() 
 		+ "', cidade = '" + instituicaoEntity.getCidade()
-        + "', estado = '" + instituicaoEntity.getEstado() + "' WHERE id = " + instituicaoEntity.getId();
+        + "', estado = '" + instituicaoEntity.getEstado() + "' WHERE id_instituicao = " + instituicaoEntity.getId();
 
 		try {
 			resultado = stmt.executeUpdate(query);
@@ -118,7 +118,7 @@ public class InstituicaoDAO {
 		Statement stmt = Banco.getStatement(conn);
 		int resultado = 0;
 
-		String query = "DELETE FROM instituicao WHERE id = " + instituicaoEntity.getId();
+		String query = "DELETE FROM instituicao WHERE id_instituicao = " + instituicaoEntity.getId();
 
 		try {
 			resultado = stmt.executeUpdate(query);
@@ -138,7 +138,7 @@ public class InstituicaoDAO {
 		ResultSet resultado = null;
 		ArrayList<InstituicaoEntity> listaInstituicaoEntity = new ArrayList<InstituicaoEntity>();
 
-		String query = "SELECT id, nome, cnpj, bairro, rua, numero, cidade, estado from instituicao";
+		String query = "SELECT id_instituicao, nome, cnpj, bairro, rua, numero, cidade, estado from instituicao";
 
 		try {
 			resultado = stmt.executeQuery(query);
@@ -175,7 +175,7 @@ public class InstituicaoDAO {
 		InstituicaoEntity instituicao = null;
 		
 
-		String query = "SELECT id, nome, cnpj, bairro, rua, numero, cidade, estado from instituicao WHERE id = " + instituicaoEntity.getId();
+		String query = "SELECT id_instituicao, nome, cnpj, bairro, rua, numero, cidade, estado from instituicao WHERE id = " + instituicaoEntity.getId();
 
 		try {
 			resultado = stmt.executeQuery(query); // SELECT SERÁ executeQuery
